@@ -70,8 +70,4 @@ public abstract class AbstractPingSender implements Flushable {
         out.writeShort(s.length());
         out.write(stringData);
     }
-
-    public static int legacySize(String s) {
-        return (s.length() * 2) + 2; // UTF_16BE encodes each char as two bytes (plus-header)
-    }
 }

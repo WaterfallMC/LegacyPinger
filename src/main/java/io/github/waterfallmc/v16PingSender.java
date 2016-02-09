@@ -8,7 +8,7 @@ import java.net.InetAddress;
 public class v16PingSender extends AbstractPingSender {
 
     public static final String MAGIC_ID = "MC|PingHost";
-    public static final int PROTOCOL_VERSION = 47;
+    public static final int PROTOCOL_VERSION = 74;
 
     @Override
     public PingResponse sendPing(InetAddress host, int port, DataInput in, DataOutput out) throws IOException {
@@ -19,7 +19,7 @@ public class v16PingSender extends AbstractPingSender {
         out.write(0xFA);
         writeLegacyString(out, MAGIC_ID);
         String hostname = host.getHostName();
-        out.writeShort(legacySize(hostname) + 7); // Length of the rest of the data
+        out.writeShort(hostname.length() * 2 + 7); // Length of the rest of the data
         out.write(PROTOCOL_VERSION);
         writeLegacyString(out, hostname);
         out.writeInt(port);

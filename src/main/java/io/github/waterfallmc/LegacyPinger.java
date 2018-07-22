@@ -3,10 +3,9 @@ package io.github.waterfallmc;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.OptionalInt;
 
 public class LegacyPinger {
-    public static final int DEFAULT_PORT = 25565;
+    private static final int DEFAULT_PORT = 25565;
 
     public static void main(String[] args) {
         if (args.length < 2) {
@@ -61,7 +60,7 @@ public class LegacyPinger {
         }
     }
 
-    public static void doPing(PingType type, InetAddress address, int port) {
+    private static void doPing(PingType type, InetAddress address, int port) {
         final AbstractPingSender sender = type.createSender();
         PingResponse response;
         try {

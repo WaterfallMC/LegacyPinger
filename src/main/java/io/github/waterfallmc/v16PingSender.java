@@ -7,8 +7,8 @@ import java.net.InetAddress;
 
 public class v16PingSender extends AbstractPingSender {
 
-    public static final String MAGIC_ID = "MC|PingHost";
-    public static final int PROTOCOL_VERSION = 74;
+    private static final String MAGIC_ID = "MC|PingHost";
+    private static final int PROTOCOL_VERSION = 74;
 
     @Override
     public PingResponse sendPing(InetAddress host, int port, DataInput in, DataOutput out) throws IOException {
@@ -30,8 +30,8 @@ public class v16PingSender extends AbstractPingSender {
         return decodeResponseString(response);
     }
 
-    public static final String MAGIC_HEADER = "§1\u0000";
-    public static PingResponse decodeResponseString(String rawData) throws IOException {
+    private static final String MAGIC_HEADER = "§1\u0000";
+    static PingResponse decodeResponseString(String rawData) throws IOException {
         if (!rawData.startsWith(MAGIC_HEADER)) throw new IOException(rawData + "doesn't start with magic header");
         rawData = rawData.substring(MAGIC_HEADER.length()); // Strip header
         // Parse Data

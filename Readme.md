@@ -2,15 +2,17 @@ LegacyPinger
 ============
 A small utility to ping servers using pre-1.7 formats
 
-##Usage
-java -jar LegacyPinger.jar {minecraft version} {host} [port]
+## Usage
+
+`java -jar LegacyPinger.jar {minecraft version} {host} [port]`
 
 Supports minecraft versions 1.0.x-1.6.x
 Servers of any version should support these pings.
 
 You can also use the 'version' `all` to ping the server in all formats
 
-##Example
+## Example
+
 `java -jar LegacyPinger all minelink.net` outputs:
 
 ````

@@ -1,6 +1,6 @@
 package io.github.waterfallmc;
 
-import lombok.*;
+import lombok.RequiredArgsConstructor;
 
 import java.util.function.Supplier;
 
